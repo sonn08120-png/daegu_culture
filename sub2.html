@@ -4,12 +4,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>울산광역시시청</title>
-    <link rel="shortcut icon" href="u/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="css/layout.css">
-    <link rel="stylesheet" href="css/hi.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bxslider@4.2.17/dist/jquery.bxslider.min.js"></script>
+    <title>Document</title>
+    <link rel="stylesheet" href="css/sub2.css">
 </head>
 
 <body>
@@ -351,351 +347,70 @@
         </script>
     </header>
     <main>
-        <div class="main_bg"></div>
-        <div class="search_bar">
-            <input type="text" placeholder="검색어를 입력해주세요.">
-            <button type="button"><img src="image/reading_glasses.png"></button>
-        </div>
-        <ul class="search_text">
-            <li><b>인기검색어</b></li>
-            <li>#민생회복지원금신청</li>
-            <li>#민생회복기간제근로자모집</li>
-            <li>#공무직</li>
-            <li>#구인</li>
-            <li>#소비쿠폰</li>
-        </ul>
-        <div class="service">
-            <div class="service_user">
-                <ul class="service_warp">
-                    <li class="service_active"><a href="">울산시민</a></li>
-                    <li><a href="">민원인</a></li>
-                    <li><a href="">관광객</a></li>
-                </ul>
-                <div class="service_btn">
-                    <a href="" class="btn_pay"><img src="image/ulsan_pay.png"><span>울산페이</span></a>
-                    <a href="" class="btn_stat"><img src="image/statistics.png"><span>통계</span></a>
-                    <a href="" class="btn_donation"><img src="image/donation.png"><span>기부제</span></a>
-                    <a href="" class="btn_res"><img src="image/reservation.png"><span>시설예약</span></a>
-                    <a href="" class="btn_traffic"><img src="image/traffic.png"><span>교통관리</span></a>
-                    <a href="" class="btn_damoa"><img src="image/damoa_ulsan.png"><span>다모와울산</span></a>
-                    <a href=""><span><b>더보기</b></span><img src="image/down_arrow.png"></a>
-                </div>
-            </div>
-        </div>
-        <div class="banner">
-            <div class="banner_left">
-                <div class="banner_left_img">
-                    <ul class="slider">
-                        <li><img src="image/main_banner_01.png" alt=""></li>
-                        <li><img src="image/main_banner_02.png" alt=""></li>
-                        <li><img src="image/main_banner_03.png" alt=""></li>
-                        <li><img src="image/main_banner_04.png" alt=""></li>
-                        <li><img src="image/main_banner_05.png" alt=""></li>
-                        <li><img src="image/main_banner_06.png" alt=""></li>
-                        <li><img src="image/main_banner_07.png" alt=""></li>
-                        <li><img src="image/main_banner_08.png" alt=""></li>
-                        <li><img src="image/main_banner_09.png" alt=""></li>
-                        <li><img src="image/main_banner_10.png" alt=""></li>
-                    </ul>
-                    <div class="banner_left_control">
-                        <div id="main-counter">
-                            <span class="current">1</span> ㅡ <span class="total"></span>
-                        </div>
-                        <div id="main-control" class="outside">
-                            <div class="outside-wrap">
-                                <span class="prev"></span><span class="stop"></span><span class="next"></span><span
-                                    class="plus"><img src="image/banner_5.png"></span>
-                            </div>
-                        </div>
+        <div>
+            <div class="sub_visual">
+                <p>울산소개</p>
+                <img src="image/sub_visual.png">
+                <div class="sub_nav">
+                    <a href="index.html"><img src="image/sub_home.png"></a>
+                    <div class="sub_warp">
+                        <a href="">울산소개</a>
+                        <span></span>
+                        <a href="">시의상징</a>
+                        <span></span>
+                        <a href="">시목·시화·시조</a>
                     </div>
                 </div>
-                <script>
-                    function initMainSlider() {
-                        var $ul = $('.banner_left_img > ul.slider');
-                        if (!$ul.length) return;
-
-                        $('#main-counter .total').text($ul.children('li').length);
-
-                        window.mainSlider = $ul.bxSlider({
-                            mode: 'horizontal',
-                            auto: true,
-                            pause: 5000,
-                            slideWidth: 820,
-                            pager: false,
-                            controls: true,
-                            autoControls: true,
-                            stopAutoOnClick: true,
-                            autoControlsCombine: true,
-                            autoControlsSelector: '#main-control .stop',
-                            prevSelector: '#main-control .prev',
-                            nextSelector: '#main-control .next',
-                            nextText: '<img src="image/banner_4.png">',
-                            prevText: '<img src="image/banner_2.png">',
-                            stopText: '<img src="image/banner_3.png">',
-                            startText: '<img src="image/banner_6.png">',
-                            infiniteLoop: true,
-
-                            preloadImages: 'all',
-                            adaptiveHeight: true,
-                            useCSS: false,
-
-                            onSliderLoad: function (i) {
-                                updateCounter(i);
-                            },
-                            onSlideAfter: function ($el, oldIdx, newIdx) {
-                                updateCounter(newIdx);
-                            }
-                        });
-
-                        function updateCounter(i) {
-                            $('#main-counter .current').text(i + 1);
-                        }
-                    }
-
-                    $(window).on('load', initMainSlider);
-                </script>
-            </div>
-            <div class="banner_right">
-                <ul class="introduce">
-                    <div class="introduce_text">
-                        <li><b>새로만드는 위대한 울산</b></li>
-                        <li>울산광역시장</li>
-                        <li><em>김두겸</em> 입니다.</li>
-                    </div>
-                </ul>
-                <ul class="introduce_btn1">
-                    <li><a href="">열린시장실</a></li>
-                    <li><a href="">공약&매니페스토</a></li>
-                </ul>
-                <ul class="introduce_btn2">
-                    <li><a href=""><img src="image/building.png">
-                            <p>부서안내</p>
-                        </a></li>
-                    <li><a href=""><img src="image/group.png">
-                            <p>조직&middot;업무</p>
-                        </a></li>
-                    <li><a href=""><img src="image/phone.png">
-                            <p>전화번호</p>
-                        </a></li>
-                    <li><a href=""><img src="image/map.png">
-                            <p>오시는 길</p>
-                        </a></li>
-                </ul>
             </div>
         </div>
-        <div class="notice">
-            <div class="notice_info">
-                <ul class="notice_warp">
-                    <li class="notice_active"><a href="">전체소식</a></li>
-                    <li><a href="">울산소식</a></li>
-                    <li><a href="">시험공고</a></li>
-                    <li><a href="">고시공고</a></li>
-                </ul>
-                <div class="notice_list_warp">
-                    <a href="" class="notice_list">
-                        <ul class="notice_list_day">
-                            <li><b>05</b></li>
-                            <li>2025.08</li>
-                        </ul>
-                        <ul class="notice_list_text">
-                            <li><b>(환경보건센터) 어르신대상 찾아가는 환경보건 학교 운영</b><img src="image/new.png"></li>
-                            <li>울산광역시환경보건센터에서 어르신대상 찾아가는 환경보건학교를 운영합니다.</li>
-                        </ul>
-                    </a>
-                    <a href="" class="notice_list">
-                        <ul class="notice_list_day">
-                            <li><b>01</b></li>
-                            <li>2025.08</li>
-                        </ul>
-                        <ul class="notice_list_text">
-                            <li><b>2025 울산 정원스토리페어 시민/학생정원, 모델정원 공모</b><img src="image/new.png"></li>
-                            <li>울산 정원스토리페어 추진위원회에서는 시민들의 관심 유도와 정원문화 확산을 위하여 일반 시민과 학생을 대상으로 「2025 울산 정원스토리페어 시민/학생
-                                정원공모」를 추진하오니 정원에 대한 관심과 참신한 아이디어를 가진 분들의 많은 참여를 부탁드립니다.</li>
-                        </ul>
-                    </a>
-                    <a href="" class="notice_list">
-                        <ul class="notice_list_day">
-                            <li><b>31</b></li>
-                            <li>2025.07</li>
-                        </ul>
-                        <ul class="notice_list_text">
-                            <li><b>2025년 어린이 정원 체험 교실 참가자 모집</b></li>
-                            <li>온 가족이 일상생활 속에서 정원을 쉽게 접하고 즐기는 어린이 정원 체험 교실을 운영하오니 시민 여러분의 많은 참여 바랍니다.</li>
-                        </ul>
-                    </a>
-                    <a href="" class="notice_list">
-                        <ul class="notice_list_day">
-                            <li><b>31</b></li>
-                            <li>2025.07</li>
-                        </ul>
-                        <ul class="notice_list_text">
-                            <li><b>장애대학생 성장 자립 지원사업(정보통신보조기기 보급 자부담금 지원사업) 안내</b></li>
-                            <li>장애대학생 성장 자립 지원사업(정보통신보조기기 보급 자부담금 지원사업) 안내 및 홍보</li>
-                        </ul>
-                    </a>
-                    <a href="" class="notice_list">
-                        <ul class="notice_list_day">
-                            <li><b>29</b></li>
-                            <li>2025.07</li>
-                        </ul>
-                        <ul class="notice_list_text">
-                            <li><b> 울산시립미술관 문화가 있는날 강연 프로그램 (미술관 TMI - 사운드 아트, 알고 들으면 더 재미있다!)</b></li>
-                            <li>울산시립미술관이 매월 마지막 주 수요일에 선보이는 미술과 TMI, 이번 주제는 ‘소리’입니다.</li>
-                        </ul>
-                    </a>
-                    <a href="" class="notice_list">
-                        <ul class="notice_list_day">
-                            <li><b>28</b></li>
-                            <li>2025.07</li>
-                        </ul>
-                        <ul class="notice_list_text">
-                            <li><b> 울산 직장인 미혼남녀 만남의 날 참가자 모집</b></li>
-                            <li>7시간 함께한 소중한 만남이 70년의 오랜 인연이 되길 바라며 울산 직장인 미혼남녀를 초대합니다</li>
-                        </ul>
-                    </a>
+        <div class="main_warp">
+            <div class="main_title">
+                <img src="image/ulsan_logo_mini.png">
+                <p>시목(市木)</p>
+            </div>
+            <div class="main_1">
+                <img src="image/image 17.png">
+                <div class="main_1_text">
+                    <img src="image/image 20.png">
+                    <b>대나무</b>
+                    <p>울산의 젖줄 태화강은 전 세계가 주목하는<br>
+                        도심 생태 하천의 모델입니다.<br>
+                        그 물줄기를 따라 펼쳐진 십리대숲(10만㎡, 대나무 63종)은<br>
+                        모든 시민들의 자랑이자 생태산업도시로 거듭난 울산의 상징물입니다.</p>
+                    <span>지정일 : 2014년 4월 8일</span>
                 </div>
             </div>
-        </div>
-        <div class="main_bottom">
-            <div class="notice_banner">
-                <div class="notice_banner_img">
-                    <div class="notice_banner_control">
-                        <div class="notice_banner_text">
-                            <p>모아보는 SNS</p>
-                            <b>울산광역시 이야기</b>
-                        </div>
-                        <div class="notice_banner_control_warp">
-                            <div id="notice_counter">
-                                <span class="notice_current">1</span> ㅡ <span class="total"></span>
-                            </div>
-                            <div id="notice_control" class="notice_outside">
-                                <div class="notice_outside_wrap">
-                                    <span class="prev"></span> | <span class="next"></span>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="sns_link_icon">
-                            <a href="" class="sns_active"><img src="image/blog_ft.png"><span></span>
-                                <p>Blog</p>
-                            </a>
-                            <a href=""><img src="image/facebook_ft.png"><span></span>
-                                <p>FaceBook</p>
-                            </a>
-                            <a href=""><img src="image/instagram_ft.png"><span></span>
-                                <p>Instagram</p>
-                            </a>
-                            <a href=""><img src="image/youtube_ft.png"><span></span>
-                                <p>Youtube</p>
-                            </a>
-                        </div>
-                    </div>
-                    <div class="notice_slider">
-                        <a href="" class="notice_slider_info">
-                            <img src="image/blog_01.png">
-                            <div class="notice_text">
-                                <p>'전화앵의 그림자' 무용 공연 속으로</p>
-                                <p><b>2025.08.07</b></p>
-                            </div>
-                        </a>
-                        <a href="" class="notice_slider_info">
-                            <img src="image/blog_02.png">
-                            <div class="notice_text">
-                                <p>'전화앵의 그림자' 무용 공연 속으로</p>
-                                <p><b>2025.08.07</b></p>
-                            </div>
-                        </a>
-                        <a href="" class="notice_slider_info">
-                            <img src="image/blog_03.png">
-                            <div class="notice_text">
-                                <p>'전화앵의 그림자' 무용 공연 속으로</p>
-                                <p><b>2025.08.07</b></p>
-                            </div>
-                        </a>
-                        <a href="" class="notice_slider_info">
-                            <img src="image/blog_04.png">
-                            <div class="notice_text">
-                                <p>'전화앵의 그림자' 무용 공연 속으로</p>
-                                <p><b>2025.08.07</b></p>
-                            </div>
-                        </a>
-                    </div>
-                </div>
-                <script>
-                    var mainSlider = $('.notice_banner_img > .notice_slider').bxSlider({
-                        auto: true,
-                        minSlides: 3,
-                        maxSlides: 4,
-                        moveSlides: 1,
-                        slideMargin: 15,
-                        pause: 10000,
-                        slideWidth: 350,
-                        pager: false,
-                        controls: true,
-                        autoControls: true,
-                        autoControlsCombine: true,
-                        prevSelector: '#notice_control .prev',
-                        nextSelector: '#notice_control .next',
-                        nextText: '<img src="image/black_arrow_02.png">',
-                        prevText: '<img src="image/black_arrow_01.png">',
-                        infiniteLoop: true,
-                        onSlideBefore: function ($slideElement, oldIndex, newIndex) {
-                            var current_index = parseInt(newIndex + 1);
-                            if (current_index > 8) {
-                                $('#notice_counter .notice_current').text(current_index);
-                            } else {
-                                $('#notice_counter .notice_current').text(current_index);
-                            };
-                        }
-                    });
-                    if (mainSlider.getSlideCount() > 9) {
-                        $('#notice_counter .total').text(mainSlider.getSlideCount());
-                    } else {
-                        $('#notice_counter .total').text(mainSlider.getSlideCount());
-                    };
-                </script>
+            <div class="main_title">
+                <img src="image/ulsan_logo_mini.png">
+                <p>시화(市花)</p>
             </div>
-        </div>
-        <div class="bottom_service">
-            <div class="bottom_service_warp">
-                <ul class="bottom_service_info">
-                    <li>울산광역시<br><b>맞춤 서비스</b></li>
-                    <li><em>울산광역시의 다양한 서비스를<br>언제든 쉽게 찾아보고 이용하세요.</em></li>
-                </ul>
-                <div class="bottom_service_btn">
-                    <div class="bottom_service_btn_top">
-                        <a href=""><img src="image/home.png">
-                            <p>안전</p>
-                        </a>
-                        <a href=""><img src="image/love.png">
-                            <p>복지</p>
-                        </a>
-                        <a href=""><img src="image/health.png">
-                            <p>보건<br>건강</p>
-                        </a>
-                        <a href=""><img src="image/airplane.png">
-                            <p>문화<br>관광</p>
-                        </a>
-                        <a href=""><img src="image/money.png">
-                            <p>세금<br>재정</p>
-                        </a>
-                    </div>
-                    <div class="bottom_service_btn_bottom">
-                        <a href=""><img src="image/work.png">
-                            <p>경제<br>일자리</p>
-                        </a>
-                        <a href=""><img src="image/tree.png">
-                            <p>환경<br>녹지</p>
-                        </a>
-                        <a href=""><img src="image/bus.png">
-                            <p>교통<br>도시</p>
-                        </a>
-                        <a href=""><img src="image/house.png">
-                            <p>건설<br>토지</p>
-                        </a>
-                        <a href=""><img src="image/administration.png">
-                            <p>행정</p>
-                        </a>
-                    </div>
+            <div class="main_1">
+                <img src="image/image 18.png">
+                <div class="main_1_text">
+                    <img src="image/image 21.png">
+                    <b>장미</b>
+                    <p>울산의 도심에는 장미의 매혹적인 향기가 묻어납니다.<br>
+                        명품공원과 더 해진 전국 최대 규모의 울산대공원 장미축제와<br>
+                        도심 곳곳에 심어진 장미 120만 본을 통해<br>
+                        정열적인 장미의 아름다움을 만끽 할 수 있습니다.</p>
+                    <span>지정일 : 2014년 4월 8일</span>
+                </div>
+            </div>
+            <div class="main_title">
+                <img src="image/ulsan_logo_mini.png">
+                <p>시조(市鳥)</p>
+            </div>
+            <div class="main_1">
+                <img src="image/image 19.png">
+                <div class="main_1_text">
+                    <img src="image/image 22.png">
+                    <b>백로</b>
+                    <p>사람과 자연이 어울려 생명력 넘치는 울산은<br>
+                        우리나라 최대의 백로 서식지(여름철 7종, 6천 여 마리)이자<br>
+                        국내에서 유일한 도시 내 번식처로서 그 가치가 매우 큽니다.<br>
+                        특히, 도심에서 펼쳐지는 백로의 군무와 우리나라에 서식하는<br>
+                        백로 7종을 한자리에서 볼 수 있는 유일한 곳입니다.</p>
+                    <span>지정일 : 1999년 1월 1일</span>
                 </div>
             </div>
         </div>

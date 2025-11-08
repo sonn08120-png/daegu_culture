@@ -1,16 +1,11 @@
 <!DOCTYPE html>
 <html lang="ko">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="css/deagu_sub.css">
-    <link rel="stylesheet" href="css/slickslider.css">
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
-    <title>월간일정 &gt; 공연정보 &gt; 공연·전시 &gt; 대구문화예술회관</title>
+    <link rel="stylesheet" href="css/daegu_sub2.css">
+    <title>공연관람예절 &gt; 관람예절안내 &gt; 공연·전시 &gt; 대구문화예술회관</title>
 </head>
-
 <body>
     <header>
         <div class="header_warp">
@@ -270,10 +265,10 @@
                             <p>공연·전시</p>
                         </a></div>
                     <div class="snb_map"><a href="">
-                            <p>공연정보</p>
+                            <p>관람예절안내</p>
                         </a></div>
                     <div class="snb_map"><a href="">
-                            <b>월간일정</b>
+                            <b>공연관람예절</b>
                         </a></div>
                 </div>
                 <div class="snb_right">
@@ -340,14 +335,11 @@
     </header>
     <main>
         <div class="select">
-            <div>
-                <p>진행중인 공연</p>
-            </div>
             <div class="active">
-                <p>월간일정</p>
+                <p>공연관람예절</p>
             </div>
             <div>
-                <p>연간일정</p>
+                <p>전시관람예절</p>
             </div>
         </div>
         <script>
@@ -360,323 +352,98 @@
                 });
             });
         </script>
-        <div class="calendar-container">
-            <div class="calendar-header">
-                <button id="prevMonth"><img src="image/calender_arrow_left.png"></button>
-                <h2 id="currentMonth">2025.10</h2>
-                <button id="nextMonth"><img src="image/calender_arrow_right.png"></button>
-            </div>
-
-            <div class="legend">
-                <div class="legend-item"><span class="legend-dot dot-show"></span>공연</div>
-                <div class="legend-item"><span class="legend-dot dot-plan"></span>기획</div>
-                <div class="legend-item"><span class="legend-dot dot-rent"></span>대관</div>
-            </div>
-
-            <table id="calendar"></table>
-        </div>
-
-        <script>
-            const currentMonthEl = document.getElementById("currentMonth");
-            const calendar = document.getElementById("calendar");
-            let currentDate = new Date(2025, 9);
-
-            const rawEvents = [
-                { date: "2025-10-02", type: "show", title: "미술관 라이브", url: "#" },
-                { date: "2025-10-05", type: "show", title: "대구시립교향악단 <체임버시리즈>", url: "#" },
-                { date: "2025-10-06", type: "show", title: "이상 프로젝트 ‘이상과 카프카’", url: "#" },
-                { date: "2025-10-07", type: "show", title: "대구시립국악단 제29회 청소년 협주곡의 밤", url: "#" },
-                { date: "2025-10-08", type: "show", title: "시립합창단 <가을의 노래>", url: "#" },
-                { date: "2025-10-09", type: "rent", title: "남진 전국 투어 콘서트", url: "#" },
-                { date: "2025-10-10", type: "rent", title: "지브리&디즈니 영화음악 Festa", url: "#" },
-                { date: "2025-10-12", type: "plan", title: "금난새의 11시 데이트 (8월)", url: "#" },
-                { date: "2025-10-15", type: "plan", title: "전통연회극 <광대>", url: "#", img: "image/poster_03.png" },
-                { date: "2025-10-15", type: "plan", title: "음악극 <적로-이슬의 노래>", url: "#" },
-                { date: "2025-10-15", type: "rent", title: "제80주년 광복절 경축 음악회", url: "#" },
-                { date: "2025-10-16", type: "plan", title: "전통연회극 <광대>", url: "#", img: "image/poster_03.png" },
-                { date: "2025-10-17", type: "rent", title: "대구시민과 함께하는 여름음악회", url: "#" },
-                { date: "2025-10-20", type: "show", title: "대구국제금관·타악페스티벌", url: "#" },
-                { date: "2025-10-21", type: "show", title: "대구국제금관·타악페스티벌", url: "#" },
-                { date: "2025-10-22", type: "show", title: "대구시립무용단 제88회 정기공연", url: "#" },
-                { date: "2025-10-22", type: "rent", title: "민속악 연주단 선풍 10번째 이야기 ‘백유'", url: "#" },
-                { date: "2025-10-23", type: "rent", title: "대구시립무용단 제88회 정기공연", url: "#" },
-                { date: "2025-10-23", type: "show", title: "제 15회 삼원신협의밤 콘서트", url: "#" },
-                { date: "2025-10-24", type: "show", title: "제 2회 달구벌문화예술 한마당", url: "#" },
-                { date: "2025-10-27", type: "rent", title: "앙상블 이덴티테트 제2회 정기연주회", url: "#" },
-                { date: "2025-10-27", type: "rent", title: "수요상설공연 - 전효진댄스컴퍼니", url: "#" },
-                { date: "2025-10-29", type: "rent", title: "소나기 콘서트", url: "#" },
-                { date: "2025-10-30", type: "rent", title: "대구무형유산제전", url: "#" },
-                { date: "2025-10-30", type: "rent", title: "매직 드로잉 가족극 <두들팝>", url: "#" },
-                { date: "2025-10-30", type: "rent", title: "iM 청춘페스타", url: "#" },
-                { date: "2025-10-31", type: "rent", title: "대구무형유산제전", url: "#" },
-                { date: "2025-10-31", type: "rent", title: "매직 드로잉 가족극 <두들팝>", url: "#" },
-            ];
-
-            const eventsByDate = rawEvents.reduce((acc, e) => {
-                (acc[e.date] ||= []).push(e);
-                return acc;
-            }, {});
-
-            function renderCalendar(date) {
-                const year = date.getFullYear();
-                const month = date.getMonth();
-                currentMonthEl.textContent = `${year}.${String(month + 1).padStart(2, "0")}`;
-
-                const firstDay = new Date(year, month, 1).getDay();
-                const lastDate = new Date(year, month + 1, 0).getDate();
-
-                let html = `
-    <thead>
-      <tr><th>일</th><th>월</th><th>화</th><th>수</th><th>목</th><th>금</th><th>토</th></tr>
-    </thead>
-    <tbody><tr>
-  `;
-
-                for (let i = 0; i < firstDay; i++) html += "<td></td>";
-
-                for (let i = 1; i <= lastDate; i++) {
-                    const day = new Date(year, month, i).getDay();
-                    const key = `${year}-${String(month + 1).padStart(2, "0")}-${String(i).padStart(2, "0")}`;
-                    const dayEvents = eventsByDate[key] || [];
-
-                    html += `<td><div class="cell-content"><div class="date">${i}</div><div class="events">`;
-
-                    dayEvents.forEach((e) => {
-                        const hasCard = e.url && e.img;
-                        html += `
-        <div class="event ${e.type}">
-          <span class="event-dot dot-${e.type}"></span>
-          <a class="event-title" href="${e.url || '#'}" target="_blank" rel="noopener">${e.title}</a>
-          ${hasCard ? `
-          <div class="event-popover" aria-hidden="true">
-            <div class="popover-card">
-              <img src="${e.img}" alt="${e.title}">
-              <div class="popover-text">
-                <div class="popover-title">${e.title}</div>
-                <a href"#" class="popover-btn" href="${e.url}" target="_blank" rel="noopener">상세보기</a>
-              </div>
-            </div>
-          </div>` : ``}
-        </div>
-      `;
-                    });
-
-                    html += `</div></div></td>`;
-                    if (day === 6 && i !== lastDate) html += "</tr><tr>";
-                }
-
-                html += "</tr></tbody>";
-                calendar.innerHTML = html;
-
-                attachPopoverPositioning();
-            }
-
-            function attachPopoverPositioning() {
-                const GAP = 10;
-                const MARGIN = 8;
-
-                document.querySelectorAll(".event").forEach((evt) => {
-                    const pop = evt.querySelector(".event-popover");
-                    if (!pop) return;
-
-                    const measureAndPlace = () => {
-                        const prev = {
-                            display: pop.style.display,
-                            opacity: pop.style.opacity,
-                            pointer: pop.style.pointerEvents,
-                        };
-                        pop.style.display = "block";
-                        pop.style.opacity = "0";
-                        pop.style.pointerEvents = "none";
-
-                        requestAnimationFrame(() => {
-                            const cardW = pop.offsetWidth || 280;
-                            const cardH = pop.offsetHeight || 360;
-
-                            const rect = evt.getBoundingClientRect();
-                            const vw = window.innerWidth;
-                            const vh = window.innerHeight;
-
-                            let left = 0;
-                            let top = evt.offsetHeight + GAP;
-
-                            if (rect.top + top + cardH > vh - MARGIN) {
-                                top = -(cardH + GAP);
-                            }
-
-                            let absLeft = rect.left + left;
-                            if (absLeft < MARGIN) {
-                                left += (MARGIN - absLeft);
-                                absLeft = rect.left + left;
-                            }
-                            if (absLeft + cardW > vw - MARGIN) {
-                                left -= (absLeft + cardW - (vw - MARGIN));
-                            }
-
-                            pop.style.left = `${left}px`;
-                            pop.style.top = `${top}px`;
-
-                            pop.style.display = prev.display || "";
-                            pop.style.opacity = prev.opacity || "";
-                            pop.style.pointerEvents = prev.pointer || "";
-                        });
-                    };
-
-                    evt.addEventListener("mouseenter", measureAndPlace);
-                    evt.addEventListener("focusin", measureAndPlace);
-                });
-            }
-
-            function debounce(fn, delay = 150) {
-                let t;
-                return (...args) => {
-                    clearTimeout(t);
-                    t = setTimeout(() => fn.apply(null, args), delay);
-                };
-            }
-
-            document.getElementById("prevMonth").addEventListener("click", () => {
-                currentDate.setMonth(currentDate.getMonth() - 1);
-                renderCalendar(currentDate);
-            });
-            document.getElementById("nextMonth").addEventListener("click", () => {
-                currentDate.setMonth(currentDate.getMonth() + 1);
-                renderCalendar(currentDate);
-            });
-
-            window.addEventListener("resize", debounce(() => attachPopoverPositioning(), 200));
-
-            renderCalendar(currentDate);
-
-            function wirePopoverOpenClose() {
-                const OPEN_DELAY = 60;
-                const CLOSE_DELAY = 140;
-
-                document.querySelectorAll('.event').forEach(evt => {
-                    const pop = evt.querySelector('.event-popover');
-                    if (!pop) return;
-
-                    let closeTimer = null, openTimer = null;
-
-                    const open = () => {
-                        clearTimeout(closeTimer);
-                        if (evt.classList.contains('is-open')) return;
-                        openTimer = setTimeout(() => evt.classList.add('is-open'), OPEN_DELAY);
-                    };
-
-                    const close = () => {
-                        clearTimeout(openTimer);
-                        closeTimer = setTimeout(() => evt.classList.remove('is-open'), CLOSE_DELAY);
-                    };
-
-                    evt.addEventListener('mouseenter', open);
-                    evt.addEventListener('mouseleave', close);
-                    evt.addEventListener('focusin', open);
-                    evt.addEventListener('focusout', close);
-
-                    pop.addEventListener('mouseenter', () => {
-                        clearTimeout(closeTimer);
-                        evt.classList.add('is-open');
-                    });
-                    pop.addEventListener('mouseleave', close);
-
-                    evt.addEventListener('click', (e) => {
-                        if (e.target.closest('.popover-btn')) return;
-                        e.preventDefault();
-                        evt.classList.toggle('is-open');
-                    });
-                    document.addEventListener('click', (e) => {
-                        if (!evt.contains(e.target)) evt.classList.remove('is-open');
-                    }, { capture: true });
-                });
-            }
-
-            wirePopoverOpenClose();
-        </script>
-        <div class="exhibition_warp">
-            <h2>이달의 공연</h2>
-            <span></span>
-            <div class="wrapper">
-                <div class="slick">
-                    <div>
-                        <p class="plan_poster">팔공홀 / 기획</p>
-                        <img src="image/poster_03.png">
+        <div class="maner_warp">
+            <h2>공연관람</h2>
+            <div class="maner">
+                <div class="maner_list_warp">
+                    <div class="maner_img">
+                        <img src="image/kids.png">
                     </div>
-                    <div>
-                        <p class="plan_poster">대구문화예술회관 / 기획</p>
-                        <img src="image/poster_07.png">
-                    </div>
-                    <div>
-                        <p class="show_poster">팔공홀 / 공연</p>
-                        <img src="image/poster_04.jpg">
-                    </div>
-                    <div>
-                        <p class="rent_poster">팔공홀 / 대관</p>
-                        <img src="image/poster_05.jpeg">
-                    </div>
-                    <div>
-                        <p class="rent_poster">팔공홀 / 대관</p>
-                        <img src="image/poster_02.jpg">
+                    <div class="maner_text">
+                        <h3>7세 이하 어린이 일반 공연장 출입 불가</h3>
+                        <ul>
+                            <li>주위 사람들에게 피해를 줄 수 있으므로, 공연장은 초등학교 취학 이전의 어린이들은 들어갈 수가 없습니다.</li>
+                            <li>어린이를 위한 공연은 입장 허용 연령이 공연 안내 전단이나 티켓 등 공연 홍보물에 미리 공지되오니 확인 부탁드립니다.</li>
+                        </ul>
                     </div>
                 </div>
             </div>
-            <script>
-                $(function () {
-                    if ($('.slick').hasClass('slick-initialized')) {
-                        $('.slick').slick('unslick');
-                    }
-
-                    const $slider = $('.slick');
-
-                    $slider.slick({
-                        autoplay: true,
-                        pauseOnHover: true,
-                        speed: 300,
-                        cssEase: 'ease',
-                        arrows: true,
-                        infinite: true,
-                        swipeToSlide: true,
-                        rows: 1,
-                        slidesToShow: 4,
-                        slidesToScroll: 1,
-                        responsive: [
-                            { breakpoint: 1024, settings: { slidesToShow: 3 } },
-                            { breakpoint: 600, settings: { slidesToShow: 2 } },
-                            { breakpoint: 480, settings: { slidesToShow: 1 } }
-                        ]
-                    });
-
-                    const $dots = $('.slick-dots');
-                    const scrollbarClass = 'slick-scrollbar';
-                    const id = 'ssb-' + (Math.random() + 1).toString(36).slice(2);
-                    const maxIdx = Math.max(0, $dots.find('li').length - 1);
-
-                    $(`.${scrollbarClass}`).remove();
-
-                    const barHtml = `
-      <div class="${scrollbarClass} ${id}">
-        <input type="range" min="0" max="${maxIdx}" step="1" value="0" />
-      </div>`;
-                    $(barHtml).insertAfter($dots);
-
-                    let lastVal = 0;
-                    $('body').on('input change', `.${scrollbarClass} input`, function () {
-                        const v = Number(this.value) || 0;
-                        if (v !== lastVal) {
-                            lastVal = v;
-                            $slider.slick('slickGoTo', v);
-                        }
-                    });
-
-                    $slider.on('beforeChange', function (e, slick, curr, next) {
-                        const $range = $(`.${scrollbarClass} input`);
-                        if (!$range.is(':focus')) {
-                            lastVal = next;
-                            $range.val(next);
-                        }
-                    });
-                });
-            </script>
+            <div class="maner">
+                <div class="maner_list_warp">
+                    <div class="maner_img">
+                        <img src="image/clock.png">
+                    </div>
+                    <div class="maner_text">
+                        <h3>공연 시작 후 출입 불가</h3>
+                        <ul>
+                            <li>공연장 입장은 공연시작 이후엔 출입할 수 가 없습니다.</li>
+                            <li>늦으실 경우 출/입구와 가까운 빈 자리로 안내드리며, 중간 휴식시간에 본인 좌석으로 이동하시면 됩니다.</li>
+                            <li>공연장 도착은 최소한 30분전까지 완료하고 자신의 자리에 앉아 편안한 마음으로 공연을 관람할 수 있는 준비를 해야 합니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="maner">
+                <div class="maner_list_warp">
+                    <div class="maner_img">
+                        <img src="image/cellphone.png">
+                    </div>
+                    <div class="maner_text">
+                        <h3>공연 중 핸드폰 및 전자기기 사용 불가</h3>
+                        <ul>
+                            <li>입장 시 휴대전화와 무선호출기의 전원을 꺼 주시기 바랍니다.</li>
+                            <li>사진 촬영은 공연자와 관객의 관람에 방해되므로 금지합니다.</li>
+                            <li>녹음은 공연자의 창작물 보호를 위해 금지됩니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="maner">
+                <div class="maner_list_warp">
+                    <div class="maner_img">
+                        <img src="image/seat_02.png">
+                    </div>
+                    <div class="maner_text">
+                        <h3>공연 시작 후 자리이동 불가</h3>
+                        <ul>
+                            <li>공연장에서 뛰어 다니지 말고, 부득이 좌석이동을 할 경우에는 자세를 낮추어 이동합시다.</li>
+                            <li>본인 지정 좌석이 아닌 다른 좌석으로 이동시 공연자와 관객의 관람에 방해되므로 금지합니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="maner">
+                <div class="maner_list_warp">
+                    <div class="maner_img">
+                        <img src="image/clap.png">
+                    </div>
+                    <div class="maner_text">
+                        <h3>환호 및 박수의 시점</h3>
+                        <ul>
+                            <li>교향곡이나 협주곡, 소나타 등은 악장의 수가 3-4 악장으로 되어있는 연주는 모든 악장이 끝난 후 박수를 칩니다.</li>
+                            <li>뮤지컬, 오페라는 감동적인 아리아나 이중창, 합창이 끝났을 때 박수를 칩니다.</li>
+                            <li>국악, 흥겨운 판소리, 사물놀이 등은 얼쑤, 좋지, 얼씨구 등의 추임새를 넣으며 박수를 같이 치면 분위기가 더 좋아집니다.</li>
+                            <li>발레, 한국무용 등은 출연자가 어려운 기술, 기교 등을 보여 주었을 때 박수로써 힘을 주면 됩니다.</li>
+                            <li>어떠한 경우에도 괴성을 지르거나 휘파람을 불어서는 안 되고, 또는 곡이 완전히 끝나기 전에 박수를 쳐서도 안됩니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <div class="maner">
+                <div class="maner_list_warp">
+                    <div class="maner_img">
+                        <img src="image/suit.png">
+                    </div>
+                    <div class="maner_text">
+                        <h3>공연관람시 옷차림</h3>
+                        <ul>
+                            <li>공연장 출입은 정장차림으로 출입하는것이 올바른 예절입니다.</li>
+                            <li>그러나 여의치 않다면 예의에 맞도록 단정한 옷차림과 신발착용을 하여 다른 관객에게 불쾌감을 주지 않아야 합니다.</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
     </main>
     <footer>
         <div class="footer_top">
@@ -709,5 +476,4 @@
         </div>
     </footer>
 </body>
-
 </html>
